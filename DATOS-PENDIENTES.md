@@ -12,13 +12,15 @@ mostrar cifras. **Se necesita una tarifa real** (por tamaño de perro y
 servicio) para poder publicarla.
 
 ## 2. Fotografías reales
-La galería usa marcadores de posición con gradientes e iconos, no fotos
-reales, porque no se ha reutilizado ningún contenido de Instagram/Google sin
-autorización. Se necesitan:
-- Fotos de perros ya arreglados (con permiso de sus dueños)
-- Fotos del interior del local
-- Una foto del equipo / de la propietaria
-- Idealmente 2-3 parejas de "antes y después"
+La galería incrusta en vivo una publicación real de su Instagram (vía el
+embed oficial de Instagram, que carga el contenido directamente desde sus
+servidores — no se ha descargado ni rehospedado ninguna imagen ajena) y
+enlaza al perfil completo. No se ha podido acceder al feed completo porque
+Instagram bloquea la navegación sin iniciar sesión, así que solo se muestra
+una publicación verificada como propia del negocio. Para una galería más
+completa y curada (fotos de perros ya arreglados, interior del local,
+equipo, antes/después), lo ideal es que la propietaria facilite las fotos
+directamente.
 
 ## 3. Horario exacto
 El horario mostrado es el que aparece **actualmente en la ficha de Google

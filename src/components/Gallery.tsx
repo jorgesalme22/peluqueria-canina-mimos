@@ -1,63 +1,54 @@
-import { PawIcon, ScissorsIcon, BathIcon, SparkleIcon, HeartHandsIcon, StarIcon } from "./icons";
-
-const placeholders = [
-  { icon: ScissorsIcon, label: "Corte terminado", gradient: "from-[#e7b18c] to-[#bd5836]" },
-  { icon: BathIcon, label: "Baño y spa", gradient: "from-[#c7d3bd] to-[#62735a]" },
-  { icon: SparkleIcon, label: "Detalle final (pajarita)", gradient: "from-[#f0d9b5] to-[#c99a4a]" },
-  { icon: PawIcon, label: "Interior del local", gradient: "from-[#ddc4b0] to-[#99432a]" },
-  { icon: HeartHandsIcon, label: "Equipo Mimos", gradient: "from-[#cdd8c3] to-[#6e7f5c]" },
-  { icon: StarIcon, label: "Antes / después", gradient: "from-[#ecd2c4] to-[#bd5836]" },
-];
+import { InstagramIcon } from "./icons";
+import { business } from "@/lib/business";
+import InstagramEmbed from "./InstagramEmbed";
 
 export default function Gallery() {
   return (
     <section id="galeria" className="section-pad">
       <div className="container-x">
-        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-          <div className="max-w-2xl">
-            <span className="eyebrow">Galería</span>
-            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
-              Nuestro trabajo, en fotos
-            </h2>
-          </div>
+        <div className="max-w-2xl">
+          <span className="eyebrow">Galería</span>
+          <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
+            Nuestro día a día, directo desde Instagram
+          </h2>
+          <p className="mt-4 text-lg text-foreground-soft">
+            En vez de fotos de archivo, te enseñamos lo real: el feed de
+            nuestro Instagram, donde compartimos el trabajo del día a día.
+          </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
-          {placeholders.map((p) => (
-            <div
-              key={p.label}
-              className={`relative aspect-square overflow-hidden rounded-2xl bg-gradient-to-br ${p.gradient} flex items-end p-4`}
-            >
-              <p.icon className="absolute top-4 left-4 size-6 text-white/80" />
-              <span className="rounded-full bg-black/25 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
-                {p.label}
-              </span>
+        <div className="mt-10 grid min-w-0 gap-6 lg:grid-cols-5 lg:items-stretch">
+          <div className="flex min-w-0 justify-center lg:col-span-2">
+            <div className="card w-full min-w-0 max-w-sm overflow-hidden p-2 sm:p-3">
+              <InstagramEmbed permalink="https://www.instagram.com/p/DKzJHAEtlQd/" />
             </div>
-          ))}
-        </div>
+          </div>
 
-        <div className="mt-6 flex items-start gap-3 rounded-2xl border border-dashed border-border bg-surface p-5">
-          <span className="mt-0.5 text-lg" aria-hidden="true">
-            📸
-          </span>
-          <p className="text-sm text-foreground-soft">
-            <strong className="text-foreground">
-              Galería pendiente de fotos reales.
-            </strong>{" "}
-            Estos espacios son marcadores de posición. Para completarla,
-            Mimos puede aportar fotos propias de perros ya arreglados
-            (con autorización de sus dueños), del interior del local y del
-            equipo — o autorizar el uso de las fotos ya publicadas en su{" "}
+          <div className="card flex min-w-0 flex-col justify-center gap-5 p-8 text-center lg:col-span-3 lg:text-left">
+            <span className="mx-auto flex size-14 items-center justify-center rounded-full bg-terracotta-tint text-terracotta-dark lg:mx-0">
+              <InstagramIcon className="size-7" />
+            </span>
+            <div>
+              <h3 className="text-xl font-semibold">
+                {business.instagramHandle}
+              </h3>
+              <p className="mt-2 text-foreground-soft">
+                Ahí publicamos las fotos y vídeos de los perritos que pasan
+                por Mimos, sorteos y novedades de la tienda. Es la forma más
+                fiel de ver el resultado real de nuestro trabajo antes de tu
+                cita.
+              </p>
+            </div>
             <a
-              href="https://www.instagram.com/peluqueriacanina_mimos_alcala/"
+              href={business.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration-terracotta underline-offset-2 hover:text-terracotta-dark"
+              className="btn btn-primary focus-ring mx-auto lg:mx-0"
             >
-              perfil de Instagram
+              <InstagramIcon className="size-4.5" />
+              Ver todas las fotos en Instagram
             </a>
-            .
-          </p>
+          </div>
         </div>
       </div>
     </section>

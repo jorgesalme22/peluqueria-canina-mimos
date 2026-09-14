@@ -150,3 +150,12 @@ h1, h2, h3, h4 {
 html {
   scroll-behavior: smooth;
 }
+
+/* Instagram's embed.js forces inline min-width:326px on the blockquote and
+   the iframe it generates, which overflows narrow phone screens. Override
+   with !important since it's the only thing that beats an inline style. */
+.instagram-media,
+.instagram-media iframe {
+  min-width: 0 !important;
+  width: 100% !important;
+}
