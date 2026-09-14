@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PhoneIcon, StarIcon, WhatsAppIcon } from "./icons";
 import { business, telHref, whatsappHref } from "@/lib/business";
 
@@ -74,11 +75,14 @@ export default function Hero() {
                 <circle cx="235" cy="150" r="22" />
               </g>
             </svg>
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/45 to-transparent p-6 pt-16">
-              <p className="text-sm font-medium text-white/90">
-                Galería con fotos reales — próximamente
+            <Link
+              href="/galeria"
+              className="focus-ring absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/45 to-transparent p-6 pt-16"
+            >
+              <p className="text-sm font-medium text-white/90 underline-offset-2 hover:underline">
+                Ver fotos reales en Instagram →
               </p>
-            </div>
+            </Link>
           </div>
 
           <div className="card absolute -left-4 top-6 flex items-center gap-2 !rounded-2xl px-4 py-3 shadow-lg sm:-left-8">

@@ -4,6 +4,8 @@ import Script from "next/script";
 import "./globals.css";
 import { business } from "@/lib/business";
 import StickyMobileBar from "@/components/StickyMobileBar";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -114,7 +116,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Saltar al contenido
         </a>
+        <Header />
         {children}
+        <Footer />
         <StickyMobileBar />
         <Script
           id="ld-json-localbusiness"

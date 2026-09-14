@@ -7,7 +7,7 @@ import {
   CheckIcon,
 } from "./icons";
 
-const reasons = [
+export const reasons = [
   {
     icon: HeartHandsIcon,
     title: "Perros tranquilos, no estresados",

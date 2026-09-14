@@ -1,21 +1,26 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { PhoneIcon, PawIcon } from "./icons";
 import { business, telHref } from "@/lib/business";
 
 const links = [
-  { href: "#servicios", label: "Servicios" },
-  { href: "#porque-mimos", label: "Por qué Mimos" },
-  { href: "#opiniones", label: "Opiniones" },
-  { href: "#ubicacion", label: "Ubicación" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/servicios", label: "Servicios" },
+  { href: "/sobre-nosotros", label: "Por qué Mimos" },
+  { href: "/galeria", label: "Galería" },
+  { href: "/opiniones", label: "Opiniones" },
+  { href: "/contacto", label: "Contacto" },
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur">
       <div className="container-x flex h-16 items-center justify-between md:h-20">
         <Link
-          href="#top"
+          href="/"
           className="focus-ring flex items-center gap-2 rounded-full"
         >
           <span className="flex size-9 items-center justify-center rounded-full bg-terracotta text-white">
@@ -27,15 +32,21 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Navegación principal">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="focus-ring rounded text-sm font-medium text-foreground-soft transition-colors hover:text-terracotta-dark"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) => {
+            const active = pathname === l.href;
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                aria-current={active ? "page" : undefined}
+                className={`focus-ring rounded text-sm font-medium transition-colors hover:text-terracotta-dark ${
+                  active ? "text-terracotta-dark" : "text-foreground-soft"
+                }`}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
@@ -46,14 +57,17 @@ export default function Header() {
             <PhoneIcon className="size-4" />
             {business.phoneDisplay}
           </a>
-          <a href="#contacto" className="btn btn-primary focus-ring">
+          <Link href="/contacto" className="btn btn-primary focus-ring">
             Reservar cita
-          </a>
+          </Link>
         </div>
 
-        <a href="#contacto" className="btn btn-primary focus-ring md:hidden !px-4 !py-2 !text-sm">
+        <Link
+          href="/contacto"
+          className="btn btn-primary focus-ring md:hidden !px-4 !py-2 !text-sm"
+        >
           Reservar
-        </a>
+        </Link>
       </div>
     </header>
   );

@@ -8,7 +8,7 @@ import {
 } from "./icons";
 import { whatsappHref } from "@/lib/business";
 
-const services = [
+export const services = [
   {
     icon: BathIcon,
     name: "Baño y spa",

@@ -1,7 +1,7 @@
 import { StarIcon } from "./icons";
 import { business } from "@/lib/business";
 
-const reviews = [
+export const reviews = [
   {
     name: "María de la Luz V.",
     time: "hace 8 meses",
@@ -19,7 +19,7 @@ const reviews = [
   },
 ];
 
-function Stars() {
+export function Stars() {
   return (
     <div className="flex gap-0.5 text-gold" aria-hidden="true">
       {Array.from({ length: 5 }).map((_, i) => (

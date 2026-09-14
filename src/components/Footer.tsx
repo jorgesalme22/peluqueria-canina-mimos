@@ -1,10 +1,20 @@
+import Link from "next/link";
 import { InstagramIcon, PawIcon, PhoneIcon, PinIcon } from "./icons";
 import { business, fullAddress, telHref } from "@/lib/business";
+
+const siteLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/servicios", label: "Servicios" },
+  { href: "/sobre-nosotros", label: "Por qué Mimos" },
+  { href: "/galeria", label: "Galería" },
+  { href: "/opiniones", label: "Opiniones" },
+  { href: "/contacto", label: "Contacto" },
+];
 
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-surface">
-      <div className="container-x grid gap-10 py-12 md:grid-cols-3">
+      <div className="container-x grid gap-10 py-12 md:grid-cols-4">
         <div>
           <div className="flex items-center gap-2">
             <span className="flex size-8 items-center justify-center rounded-full bg-terracotta text-white">
@@ -27,6 +37,22 @@ export default function Footer() {
             <InstagramIcon className="size-4" />
             {business.instagramHandle}
           </a>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-semibold">Navegación</h3>
+          <ul className="mt-3 space-y-2 text-sm text-foreground-soft">
+            {siteLinks.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className="focus-ring hover:text-terracotta-dark"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div>
